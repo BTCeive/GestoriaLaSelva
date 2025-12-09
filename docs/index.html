@@ -3,11 +3,49 @@
 <html lang="es">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="refresh" content="0;url=idiomas/es/">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Redirigiendo…</title>
+	<meta name="robots" content="noindex">
 </head>
 <body>
-	<p>Si no eres redirigido automáticamente, <a href="idiomas/es/">haz clic aquí</a>.</p>
+	<p>Redirigiendo según la configuración de idioma del navegador…</p>
+
+	<noscript>
+		<p>JavaScript desactivado. Elige tu idioma:
+			<a href="./es/">Español</a> ·
+			<a href="./en/">English</a> ·
+			<a href="./ca/">Català</a> ·
+			<a href="./fr/">Français</a> ·
+			<a href="./ru/">Русский</a>
+		</p>
+	</noscript>
+
+	<script>
+		(function(){
+			var supported = ['es','en','ru','fr','ca'];
+			var langs = navigator.languages || [navigator.language || navigator.userLanguage || 'es'];
+			function pickFrom(code){
+				if(!code) return null;
+				code = code.toLowerCase();
+				var primary = code.split('-')[0];
+				return supported.indexOf(primary) !== -1 ? primary : null;
+			}
+			var chosen = null;
+			for(var i=0;i<langs.length;i++){
+				chosen = pickFrom(langs[i]);
+				if(chosen) break;
+			}
+			if(!chosen){
+				chosen = pickFrom(navigator.language) || 'es';
+			}
+			// redirect to the selected language index
+			var target = './' + chosen + '/index.html';
+			try{
+				window.location.replace(target);
+			}catch(e){
+				window.location = target;
+			}
+		})();
+	</script>
 </body>
 </html>
