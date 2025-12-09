@@ -36,10 +36,14 @@
     </div>
   </header>
 
-  <main class="site-main">
-    <h1>Benvingut a Gestoría La Selva</h1>
-    <p class="lead">Selecciona el idioma o una sección del menú para continuar.</p>
-  </main>
+  <main class="site-main"></main>
+
+  <!-- Network hero: título principal (sin líneas ni botones) -->
+  <section id="hero-network" style="position:relative;margin:6rem 0 4rem;">
+    <div class="hero-inner" style="max-width:980px;margin:0 auto;text-align:center;padding:1rem 1rem;">
+      <h1 id="network-center" style="font-family:'Playfair Display',serif;font-size:3rem;margin:0;padding:0.25rem 0.5rem;">Gestoría La Selva</h1>
+    </div>
+  </section>
 
   <script>
     (function(){
@@ -72,6 +76,8 @@
       btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); } });
     })();
   </script>
+
+  
 
 </body>
 </html>
