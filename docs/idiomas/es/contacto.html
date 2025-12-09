@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gestoría La Selva — Contacto</title>
+  <link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a class="brand-link" href="../../">Gestoría La Selva</a></div>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="index.html">Inicio</a></li>
+        <li><a class="nav-link" href="sobre.html">Sobre Nosotros</a></li>
+        <li><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li><a class="nav-link" href="trafico.html">Tráfico</a></li>
+        <li><a class="nav-link" href="no-residentes.html">No Residentes</a></li>
+        <li><a class="nav-link" href="contacto.html">Contacto</a></li>
+        <li class="lang-dropdown">
+          <button id="langBtn" aria-haspopup="true" aria-expanded="false" class="lang-btn">🌐 Idiomas ▾</button>
+          <ul id="langList" role="menu" class="lang-list">
+            <li role="none"><a role="menuitem" href="../es/">🇪🇸 Español</a></li>
+            <li role="none"><a role="menuitem" href="../ca/">Català</a></li>
+            <li role="none"><a role="menuitem" href="../en/">🇬🇧 English</a></li>
+            <li role="none"><a role="menuitem" href="../ru/">🇷🇺 Русский</a></li>
+            <li role="none"><a role="menuitem" href="../fr/">🇫🇷 Français</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <h1>Contacto</h1>
+    <p class="lead">Ponte en contacto con nosotros para solicitar información o una cita personalizada.</p>
+
+    <section>
+      <h2>Datos de contacto</h2>
+      <p>Email: <a href="mailto:contacto@gestorialaselva.example">contacto@gestorialaselva.example</a></p>
+      <p>Teléfono: +34 600 000 000</p>
+      <p>Dirección: Calle Ejemplo 1, 08000, Barcelona</p>
+    </section>
+
+    <section>
+      <h2>Formulario</h2>
+      <p>Próximamente añadiremos un formulario de contacto en esta página.</p>
+    </section>
+  </main>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('langBtn');
+      var list = document.getElementById('langList');
+      btn && btn.addEventListener('click', function(e){e.stopPropagation(); list.classList.toggle('open'); btn.setAttribute('aria-expanded', list.classList.contains('open'))});
+      document.addEventListener('click', function(){ if(list) { list.classList.remove('open'); btn.setAttribute('aria-expanded','false') } });
+    })();
+  </script>
+</body>
+</html>
