@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gestoría La Selva — No residentes</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .content article{display:none}
+    .content article.active{display:block}
+    .sidebar-list a.active{background:#e6f6ff;font-weight:600}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a class="brand-link" href="/docs/es/index.html">Gestoría La Selva</a></div>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/docs/es/index.html">Inicio</a></li>
+        <li><a class="nav-link" href="sobre.html">Sobre Nosotros</a></li>
+        <li><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li><a class="nav-link" href="trafico.html">Tráfico</a></li>
+        <li><a class="nav-link" href="no-residentes.html">No Residentes</a></li>
+        <li><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Seleccionar idioma">
+        <span class="flag" id="currentFlag">🇪🇸</span>
+        <span id="currentLabel">Español</span>
+      </button>
+      <ul class="lang-list" id="langList" role="menu" aria-label="Lista de idiomas">
+        <li><a href="./" data-lang="es"><span class="flag">🇪🇸</span> Español</a></li>
+        <li><a href="../en/" data-lang="en"><span class="flag">🇬🇧</span> English</a></li>
+        <li><a href="../ca/" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
+        <li><a href="../fr/" data-lang="fr"><span class="flag">🇫🇷</span> Français</a></li>
+        <li><a href="../ru/" data-lang="ru"><span class="flag">🇷🇺</span> Русский</a></li>
+        <li><a href="../hy/" data-lang="hy"><span class="flag">🇦🇲</span> Հայերեն</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('langBtn');
+      var list = document.getElementById('langList');
+      var dd = document.getElementById('langDropdown');
+      var currentFlag = document.getElementById('currentFlag');
+      var currentLabel = document.getElementById('currentLabel');
+      function guessLang(){
+        var parts = location.pathname.split('/').filter(Boolean);
+        for(var i=parts.length-1;i>=0;i--){ if(['es','en','fr','ru','ca','hy'].indexOf(parts[i])!==-1) return parts[i]; }
+        var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'es';
+        return nav.split('-')[0];
+      }
+      var lang = guessLang() || 'es';
+      var map = {es:{flag:'🇪🇸',label:'Español'},en:{flag:'🇬🇧',label:'English'},ca:{label:'Català'},fr:{flag:'🇫🇷',label:'Français'},ru:{flag:'🇷🇺',label:'Русский'},hy:{flag:'🇦🇲',label:'Հայերեն'}};
+      if(map[lang]){
+        if(lang === 'ca'){
+          currentFlag.innerHTML = '<img class="flag-img" src="../assets/img/senyera.svg" alt="Català">';
+        }else{
+          currentFlag.textContent = map[lang].flag;
+        }
+        currentLabel.textContent = map[lang].label;
+      }
+      btn.addEventListener('click', function(e){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+      document.addEventListener('click', function(e){ if(!dd.contains(e.target)){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+      btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); } });
+    })();
+  </script>
+
+  <main class="site-main">
+    <h1>No Residentes</h1>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Menú No residentes">
+        <h3>Temas</h3>
+        <ul class="sidebar-list">
+          <li><a href="#estado">Estado de residencia en España</a></li>
+          <li><a href="#fiscalidad">Fiscalidad internacional y declaración fiscal</a></li>
+          <li><a href="#nie">Obtención de NIE (No Residentes)</a></li>
+          <li><a href="#inmobiliarios">Servicios inmobiliarios</a></li>
+        </ul>
+      </aside>
+
+      <section class="content">
+        <article id="estado">
+          <h3>Estado de residencia en España</h3>
+          <p>¿Sabes si tienes la condición de residente o no residente fiscal en España?</p>
+
+          <p>Una persona física reside en España cuando se da cualquiera de las siguientes circunstancias:</p>
+          <ul>
+            <li>Han pasado más de 183 días, durante un año natural, en España. Para determinar este periodo de residencia en España se contabilizarán las ausencias esporádicas, salvo que el contribuyente demuestre su residencia fiscal en otro país. En el caso de países o territorios considerados paraísos fiscales, la Administración Tributaria podrá exigir prueba de su residencia en el país durante 183 días del año natural.</li>
+            <li>El núcleo de sus actividades o intereses económicos reside en España, directa o indirectamente.</li>
+            <li>El cónyuge –no divorciado- y los hijos menores que dependen de esta persona física tienen su establecimiento permanente en España. Esta tercera suposición debe demostrarse.</li>
+            <li>Las personas físicas de nacionalidad española que acrediten su nueva residencia fiscal en un país o territorio clasificado como paraíso fiscal no perderán la condición de contribuyentes del Impuesto sobre la Renta de las Personas Físicas. Esta regla se aplicará en el período impositivo en el que se produzca el cambio de residencia y durante los cuatro períodos impositivos siguientes.</li>
+          </ul>
+
+          <p>Por el contrario, una persona física será considerada no residente en España cuando no se cumpla ninguno de los requisitos anteriores.</p>
+        </article>
+        
+        <article id="fiscalidad">
+          <h3>Fiscalidad internacional y declaración fiscal</h3>
+          <p>En Gestoría La Selva ofrecemos una amplia gama de servicios profesionales para no residentes. Contáctanos sin ningún compromiso y realizaremos un estudio para saber si estás obligado a presentar algún tipo de declaración y así cumplir con tus obligaciones legales de acuerdo con la legislación vigente.</p>
+
+          <p>Nuestros servicios incluyen:</p>
+          <ul>
+            <li>Asesoramiento sobre la legislación vigente en materia tributaria internacional.</li>
+            <li>Impuesto sobre la Renta de No Residentes. ¿Dónde se aplica? ¿Quién está obligado a pagar impuestos?</li>
+            <li>Estudio sobre la obligación o no obligación de pagar el Impuesto sobre la Renta de No Residentes (IRNR).</li>
+            <li>Retención en compras de inmuebles a no residentes sin establecimiento permanente.</li>
+            <li>Impuesto especial sobre activos inmobiliarios de entidades no residentes.</li>
+            <li>Ingresos obtenidos sin establecimiento permanente. Retenciones y pagos a cuenta (declaración - documento de ingresos).</li>
+            <li>Notificación del desplazamiento de trabajadores ocupados a otro territorio.</li>
+            <li>Devolución de información. Impuesto sobre la renta de no residentes. Cuentas de no residentes sin establecimiento permanente.</li>
+            <li>Devolución de información. Listado individualizado de clientes beneficiarios de prestaciones distribuido por las Instituciones Fiduciarias Unitarias españolas, así como aquellos para los que las entidades comercializadoras hayan realizado reembolsos o transferencias de acciones o participaciones.</li>
+            <li>Devolución de información. Retenciones y pagos a cuenta del impuesto sobre la renta de no residentes (sin establecimiento permanente).</li>
+            <li>Devolución de información. Información sobre el rendimiento de los activos y derechos mantenidos en el extranjero.</li>
+            <li>Paraísos fiscales.</li>
+            <li>Acuerdos de doble imposición.</li>
+          </ul>
+
+          <h4>Nuestros servicios tributarios</h4>
+          <p>Brindamos servicios integrales de tributación internacional para ayudar a los no residentes a comprender y cumplir con sus obligaciones tributarias en España optimizando al mismo tiempo su posición fiscal.</p>
+
+          <ul>
+            <li><strong>Consulta Fiscal</strong><br>Asesoramiento experto en tributación internacional y obligaciones tributarias de no residentes.</li>
+            <li><strong>Declaraciones de impuestos</strong><br>Elaboración y presentación de declaraciones del impuesto sobre la renta de no residentes.</li>
+            <li><strong>Planificación fiscal</strong><br>Planificación fiscal estratégica para minimizar pasivos y garantizar el cumplimiento.</li>
+          </ul>
+        </article>
+        
+        <article id="nie">
+          <h3>Obtención de NIE (Número de Identificación Fiscal para No Residentes)</h3>
+          <p>El NIE (Número de Identificación de Extranjero) es un número identificador único asignado a extranjeros que necesitan realizar actividades económicas, profesionales o sociales en España. Asistimos con todo tipo de solicitudes de NIE:</p>
+
+          <ul>
+            <li>Solicitud NIE para la adquisición de bienes inmuebles.</li>
+            <li>Solicitud NIE de intereses económicos, compraventa de acciones sociales, creación de una empresa, inversión en acciones, etc.</li>
+            <li>Solicitud NIE por intereses profesionales.</li>
+            <li>Solicitud NIE por intereses sociales.</li>
+          </ul>
+
+          <h4>Nuestros servicios NIE</h4>
+          <p>Ofrecemos servicios integrales de solicitud NIE para ayudar a los no residentes a obtener su número de identificación fiscal para diversos fines en España.</p>
+
+          <ul>
+            <li><strong>Aplicación NIE</strong><br>Asistencia completa con aplicaciones NIE para todos los propósitos.</li>
+            <li><strong>Preparación de documentos</strong><br>Elaboración de toda la documentación requerida para las solicitudes NIE.</li>
+            <li><strong>Presentación de solicitud</strong><br>Manejo experto de la presentación y seguimiento de solicitudes.</li>
+          </ul>
+        </article>
+        
+        <article id="inmobiliarios">
+          <h3>Servicios inmobiliarios</h3>
+          <p>Nuestros servicios inmobiliarios para no residentes cubren todos los aspectos de la adquisición, gestión y procedimientos relacionados de la propiedad en España.</p>
+
+          <ul>
+            <li>Asesoramiento en la adquisición de inmuebles.</li>
+            <li>Obtención de NIE.</li>
+            <li>Gestión integral de compra y venta de inmuebles.</li>
+            <li>Tramitación de certificados energéticos, certificados de ocupación, etc.</li>
+          </ul>
+
+          <h4>Nuestros servicios inmobiliarios</h4>
+          <p>Brindamos servicios inmobiliarios integrales para ayudar a los no residentes a navegar el proceso de adquisición, gestión y venta de propiedades en España.</p>
+
+          <ul>
+            <li><strong>Adquisición de propiedad</strong><br>Asesoramiento experto y asistencia en la adquisición de inmuebles en España.</li>
+            <li><strong>Gestión de propiedades</strong><br>Gestión integral de transacciones de compra y venta.</li>
+            <li><strong>Certificación</strong><br>Tramitación de certificados energéticos y certificados de ocupación.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      function showSection(id){
+        var articles = document.querySelectorAll('.content article');
+        articles.forEach(function(a){ a.classList.remove('active'); });
+        var target = document.getElementById(id);
+        if(target) target.classList.add('active');
+
+        var links = document.querySelectorAll('.sidebar-list a');
+        links.forEach(function(l){ l.classList.remove('active'); });
+        var link = document.querySelector('.sidebar-list a[href="#'+id+'"]');
+        if(link) link.classList.add('active');
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        var links = document.querySelectorAll('.sidebar-list a');
+        links.forEach(function(l){
+          l.addEventListener('click', function(ev){
+            ev.preventDefault();
+            var href = l.getAttribute('href') || '';
+            var id = href.replace('#','');
+            if(id) showSection(id);
+            if(history && history.replaceState){ history.replaceState(null, '', '#'+id); } else { location.hash = id; }
+          });
+        });
+
+        var initial = (location.hash && location.hash.length>1) ? location.hash.substring(1) : null;
+        if(initial && document.getElementById(initial)){
+          showSection(initial);
+        } else {
+          var first = document.querySelector('.content article');
+          if(first) first.classList.add('active');
+          var firstId = first && first.id;
+          var firstLink = firstId && document.querySelector('.sidebar-list a[href="#'+firstId+'"]');
+          if(firstLink) firstLink.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

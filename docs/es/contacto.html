@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Gestoría La Selva — Inicio</title>
+  <title>Gestoría La Selva — Contacto</title>
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
@@ -36,11 +36,6 @@
     </div>
   </header>
 
-  <main class="site-main">
-    <h1>Benvingut a Gestoría La Selva</h1>
-    <p class="lead">Selecciona el idioma o una sección del menú para continuar.</p>
-  </main>
-
   <script>
     (function(){
       var btn = document.getElementById('langBtn');
@@ -48,14 +43,12 @@
       var dd = document.getElementById('langDropdown');
       var currentFlag = document.getElementById('currentFlag');
       var currentLabel = document.getElementById('currentLabel');
-
       function guessLang(){
         var parts = location.pathname.split('/').filter(Boolean);
         for(var i=parts.length-1;i>=0;i--){ if(['es','en','fr','ru','ca','hy'].indexOf(parts[i])!==-1) return parts[i]; }
         var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'es';
         return nav.split('-')[0];
       }
-
       var lang = guessLang() || 'es';
       var map = {es:{flag:'🇪🇸',label:'Español'},en:{flag:'🇬🇧',label:'English'},ca:{label:'Català'},fr:{flag:'🇫🇷',label:'Français'},ru:{flag:'🇷🇺',label:'Русский'},hy:{flag:'🇦🇲',label:'Հայերեն'}};
       if(map[lang]){
@@ -66,7 +59,6 @@
         }
         currentLabel.textContent = map[lang].label;
       }
-
       btn.addEventListener('click', function(e){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
       document.addEventListener('click', function(e){ if(!dd.contains(e.target)){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
       btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); } });

@@ -8,7 +8,32 @@
 </head>
 <body>
   <header class="site-header">
-    <div class="brand"><a class="brand-link" href="../">Gestoría La Selva</a></div>
+    <div class="brand"><a class="brand-link" href="/docs/es/index.html">Gestoría La Selva</a></div>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/docs/es/index.html">Inicio</a></li>
+        <li><a class="nav-link" href="sobre.html">Sobre Nosotros</a></li>
+        <li><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li><a class="nav-link" href="trafico.html">Tráfico</a></li>
+        <li><a class="nav-link" href="no-residentes.html">No Residentes</a></li>
+        <li><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Seleccionar idioma">
+        <span class="flag" id="currentFlag">🇫🇷</span>
+        <span id="currentLabel">Français</span>
+      </button>
+      <ul class="lang-list" id="langList" role="menu" aria-label="Lista de idiomas">
+        <li><a href="../es/" data-lang="es"><span class="flag">🇪🇸</span> Español</a></li>
+        <li><a href="../en/" data-lang="en"><span class="flag">🇬🇧</span> English</a></li>
+        <li><a href="../ca/" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
+        <li><a href="./" data-lang="fr"><span class="flag">🇫🇷</span> Français</a></li>
+        <li><a href="../ru/" data-lang="ru"><span class="flag">🇷🇺</span> Русский</a></li>
+        <li><a href="../hy/" data-lang="hy"><span class="flag">🇦🇲</span> Հայերեն</a></li>
+      </ul>
+    </div>
   </header>
   <main class="site-main">
     <h1>Bienvenue — Français</h1>
