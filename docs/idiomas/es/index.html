@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Gestoría La Selva — Inicio</title>
+	<link rel="stylesheet" href="../../css/styles.css">
+</head>
+<body>
+	<header style="display:flex;align-items:center;justify-content:space-between;padding:1rem;border-bottom:1px solid #e6e6e6">
+		<div>
+			<a href="../../" style="font-weight:700;font-size:1.1rem;text-decoration:none;color:inherit">Gestoría La Selva</a>
+		</div>
+		<nav>
+			<ul style="list-style:none;display:flex;gap:1rem;margin:0;padding:0;align-items:center">
+				<li><a href="#inicio">Inicio</a></li>
+				<li><a href="#sobre">Sobre Nosotros</a></li>
+				<li><a href="#servicios">Servicios</a></li>
+				<li><a href="#trafico">Tráfico</a></li>
+				<li><a href="#no-residentes">No Residentes</a></li>
+				<li><a href="#contacto">Contacto</a></li>
+				<li style="position:relative">
+					<button id="langBtn" aria-haspopup="true" aria-expanded="false" style="background:none;border:1px solid #ccc;padding:0.25rem 0.5rem;cursor:pointer">🌐 Idiomas ▾</button>
+					<ul id="langList" role="menu" style="display:none;position:absolute;right:0;top:2.5rem;background:#fff;border:1px solid #ccc;padding:0.5rem;list-style:none;margin:0">
+						<li role="none"><a role="menuitem" href="../es/">🇪🇸 Español</a></li>
+						<li role="none"><a role="menuitem" href="../ca/">Català</a></li>
+						<li role="none"><a role="menuitem" href="../en/">🇬🇧 English</a></li>
+						<li role="none"><a role="menuitem" href="../ru/">🇷🇺 Русский</a></li>
+						<li role="none"><a role="menuitem" href="../fr/">🇫🇷 Français</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<main style="padding:1rem">
+		<section id="inicio">
+			<h1>Bienvenidos a Gestoría La Selva</h1>
+			<p>Gestoría especializada en trámites administrativos y asesoramiento.</p>
+		</section>
+
+		<section id="sobre">
+			<h2>Sobre Nosotros</h2>
+			<p>Breve descripción de la gestoría, historia y valores.</p>
+		</section>
+
+		<section id="servicios">
+			<h2>Servicios</h2>
+			<ul>
+				<li>Asesoría fiscal</li>
+				<li>Contabilidad</li>
+				<li>Gestión laboral</li>
+			</ul>
+		</section>
+
+		<section id="trafico">
+			<h2>Tráfico</h2>
+			<p>Servicios relacionados con tráfico, multas y permisos.</p>
+		</section>
+
+		<section id="no-residentes">
+			<h2>No Residentes</h2>
+			<p>Asesoramiento y trámites para no residentes.</p>
+		</section>
+
+		<section id="contacto">
+			<h2>Contacto</h2>
+			<p>Email: contacto@gestorialaselva.example</p>
+			<p>Teléfono: +34 600 000 000</p>
+		</section>
+	</main>
+
+	<script>
+		(function(){
+			var btn = document.getElementById('langBtn');
+			var list = document.getElementById('langList');
+			btn && btn.addEventListener('click', function(){
+				var shown = list.style.display === 'block';
+				list.style.display = shown ? 'none' : 'block';
+				btn.setAttribute('aria-expanded', !shown);
+			});
+			document.addEventListener('click', function(e){
+				if (!btn.contains(e.target) && !list.contains(e.target)) list.style.display = 'none';
+			});
+		})();
+	</script>
+</body>
+</html>
