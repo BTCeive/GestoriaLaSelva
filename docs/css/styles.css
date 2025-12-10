@@ -195,3 +195,26 @@ ul{padding-left:1rem}
 /* Small flag image used for Català (Senyera) */
 .flag-img{width:18px;height:auto;display:inline-block;vertical-align:middle;border-radius:2px}
 .flag{font-size:20px;line-height:1;display:inline-block;vertical-align:middle}
+
+/* Hero responsive rules for the site header + main title */
+#hero-network{position:relative;margin:1rem 0 2rem;padding-top:0}
+#hero-network .hero-inner{max-width:980px;margin:0 auto;text-align:center;padding:0.5rem 1rem}
+#network-center{font-family:'Playfair Display',serif;font-size:2.75rem;margin:0;padding:0.125rem 0.25rem}
+
+@media (max-width:1024px){
+	#network-center{font-size:2.25rem}
+	#hero-network{margin:0.75rem 0 1.75rem}
+}
+
+@media (max-width:720px){
+	#network-center{font-size:1.9rem}
+	#hero-network{margin:0.5rem 0 1.25rem}
+	.site-header{padding:0.6rem 0.9rem}
+	.brand-link{font-size:1rem}
+}
+
+@media (max-width:480px){
+	#network-center{font-size:1.5rem}
+	#hero-network{margin:0.4rem 0 1rem}
+	#hero-network .hero-inner{padding:0.4rem 0.8rem}
+}
