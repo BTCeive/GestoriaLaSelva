@@ -1,24 +1,20 @@
 <!doctype html>
-<html lang="hy">
+<html lang="ca">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Gestoría La Selva — Հայերեն</title>
-  <link rel="alternate" hreflang="es" href="/docs/es/index.html" />
-  <link rel="alternate" hreflang="en" href="/docs/en/index.html" />
-  <link rel="alternate" hreflang="ca" href="/docs/ca/index.html" />
-  <link rel="alternate" hreflang="fr" href="/docs/fr/index.html" />
-  <link rel="alternate" hreflang="ru" href="/docs/ru/index.html" />
-  <link rel="alternate" hreflang="hy" href="/docs/hy/index.html" />
-  <link rel="alternate" hreflang="x-default" href="/docs/es/index.html" />
+  <title>Gestoría La Selva — Sobre Nosotros</title>
   <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .lead{margin-bottom:1rem}
+  </style>
 </head>
 <body>
   <header class="site-header">
-    <div class="brand"><a class="brand-link" href="/docs/es/index.html">Gestoría La Selva</a></div>
-    <nav class="site-nav" aria-label="Գլխավոր նավիգացիա">
+    <div class="brand"><a class="brand-link" href="/docs/ca/index.html">Gestoría La Selva</a></div>
+    <nav class="site-nav" aria-label="Navegación principal">
       <ul class="nav-list">
-        <li><a class="nav-link" href="/docs/es/index.html">Inicio</a></li>
+        <li><a class="nav-link" href="/docs/ca/index.html">Inicio</a></li>
         <li><a class="nav-link" href="sobre.html">Sobre Nosotros</a></li>
         <li><a class="nav-link" href="servicios.html">Servicios</a></li>
         <li><a class="nav-link" href="trafico.html">Tráfico</a></li>
@@ -28,43 +24,35 @@
     </nav>
 
     <div class="lang-dropdown" id="langDropdown">
-      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Ընտրել լեզուն">
-        <span class="flag" id="currentFlag">🇦🇲</span>
-        <span id="currentLabel">Հայերեն</span>
+      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Seleccionar idioma">
+        <img class="flag-img" id="currentFlag" src="../assets/img/senyera.svg" alt="Català">
+        <span id="currentLabel">Català</span>
       </button>
       <ul class="lang-list" id="langList" role="menu" aria-label="Lista de idiomas">
         <li><a href="../es/" data-lang="es"><span class="flag">🇪🇸</span> Español</a></li>
         <li><a href="../en/" data-lang="en"><span class="flag">🇬🇧</span> English</a></li>
-        <li><a href="../ca/" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
+        <li><a href="./" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
         <li><a href="../fr/" data-lang="fr"><span class="flag">🇫🇷</span> Français</a></li>
         <li><a href="../ru/" data-lang="ru"><span class="flag">🇷🇺</span> Русский</a></li>
-        <li><a href="./" data-lang="hy"><span class="flag">🇦🇲</span> Հայերեն</a></li>
+        <li><a href="../hy/" data-lang="hy"><span class="flag">🇦🇲</span> Հայերեն</a></li>
       </ul>
     </div>
   </header>
 
-  <main class="site-main">
-    <h1>Բարի գալուստ</h1>
-    <p>Ընտրեք լեզուն՝ <a href="../es/">Español</a> · <a href="../en/">English</a> · <a href="../ca/">Català</a> · <a href="../fr/">Français</a> · <a href="../ru/">Русский</a></p>
-  </main>
-
   <script>
-    // Replicar la lógica ligera para mostrar la bandera y etiqueta actual
     (function(){
       var btn = document.getElementById('langBtn');
       var list = document.getElementById('langList');
       var dd = document.getElementById('langDropdown');
       var currentFlag = document.getElementById('currentFlag');
       var currentLabel = document.getElementById('currentLabel');
-
       function guessLang(){
         var parts = location.pathname.split('/').filter(Boolean);
         for(var i=parts.length-1;i>=0;i--){ if(['es','en','fr','ru','ca','hy'].indexOf(parts[i])!==-1) return parts[i]; }
-        var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'hy';
+        var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'ca';
         return nav.split('-')[0];
       }
-
-      var lang = guessLang() || 'hy';
+      var lang = guessLang() || 'ca';
       var map = {es:{flag:'🇪🇸',label:'Español'},en:{flag:'🇬🇧',label:'English'},ca:{label:'Català'},fr:{flag:'🇫🇷',label:'Français'},ru:{flag:'🇷🇺',label:'Русский'},hy:{flag:'🇦🇲',label:'Հայերեն'}};
       if(map[lang]){
         if(lang === 'ca'){
@@ -74,10 +62,26 @@
         }
         currentLabel.textContent = map[lang].label;
       }
-
       btn.addEventListener('click', function(e){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
       document.addEventListener('click', function(e){ if(!dd.contains(e.target)){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+      btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); } });
     })();
   </script>
+
+  <main class="site-main">
+    <h1>Sobre Nosotros</h1>
+
+    <section>
+      <h2>Servicios de Asesoría Empresarial Integrales</h2>
+      <p class="lead">Gestoría La Selva proporciona servicios integrales de asesoría fiscal, legal, laboral y empresarial. Combinamos experiencia, formación continua y tecnología moderna para ofrecer soluciones personalizadas que protegen y fortalecen tu empresa. Nuestros expertos ayudan a las empresas a maximizar la rentabilidad y lograr un crecimiento equilibrado.</p>
+
+      <h3>Valores</h3>
+      <ul>
+        <li><strong>Profesionalidad</strong></li>
+        <li><strong>Compromiso con la Satisfacción</strong></li>
+        <li><strong>Proximidad al Cliente</strong></li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>

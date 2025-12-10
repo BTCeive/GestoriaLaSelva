@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gestoría La Selva — Servicios</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    /* Mostrar solo la sección activa; el script añade la clase "active" */
+    .content article{display:none}
+    .content article.active{display:block}
+    .sidebar-list a.active{background:#e6f6ff;font-weight:600}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a class="brand-link" href="/docs/en/index.html">Gestoría La Selva</a></div>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/docs/en/index.html">Inicio</a></li>
+        <li><a class="nav-link" href="sobre.html">Sobre Nosotros</a></li>
+        <li><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li><a class="nav-link" href="trafico.html">Tráfico</a></li>
+        <li><a class="nav-link" href="no-residentes.html">No Residentes</a></li>
+        <li><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Seleccionar idioma">
+        <span class="flag" id="currentFlag">🇬🇧</span>
+        <span id="currentLabel">English</span>
+      </button>
+      <ul class="lang-list" id="langList" role="menu" aria-label="Lista de idiomas">
+        <li><a href="../es/" data-lang="es"><span class="flag">🇪🇸</span> Español</a></li>
+        <li><a href="./" data-lang="en"><span class="flag">🇬🇧</span> English</a></li>
+        <li><a href="../ca/" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
+        <li><a href="../fr/" data-lang="fr"><span class="flag">🇫🇷</span> Français</a></li>
+        <li><a href="../ru/" data-lang="ru"><span class="flag">🇷🇺</span> Русский</a></li>
+        <li><a href="../hy/" data-lang="hy"><span class="flag">🇦🇲</span> Հայերեն</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('langBtn');
+      var list = document.getElementById('langList');
+      var dd = document.getElementById('langDropdown');
+      var currentFlag = document.getElementById('currentFlag');
+      var currentLabel = document.getElementById('currentLabel');
+      function guessLang(){
+        var parts = location.pathname.split('/').filter(Boolean);
+        for(var i=parts.length-1;i>=0;i--){ if(['es','en','fr','ru','ca','hy'].indexOf(parts[i])!==-1) return parts[i]; }
+        var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+        return nav.split('-')[0];
+      }
+      var lang = guessLang() || 'en';
+      var map = {es:{flag:'🇪🇸',label:'Español'},en:{flag:'🇬🇧',label:'English'},ca:{label:'Català'},fr:{flag:'🇫🇷',label:'Français'},ru:{flag:'🇷🇺',label:'Русский'},hy:{flag:'🇦🇲',label:'Հայերեն'}};
+      if(map[lang]){
+        if(lang === 'ca'){
+          currentFlag.innerHTML = '<img class="flag-img" src="../assets/img/senyera.svg" alt="Català">';
+        }else{
+          currentFlag.textContent = map[lang].flag;
+        }
+        currentLabel.textContent = map[lang].label;
+      }
+      btn.addEventListener('click', function(e){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+      document.addEventListener('click', function(e){ if(!dd.contains(e.target)){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+      btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); } });
+    })();
+  </script>
+
+  <main class="site-main">
+    <h1>Servicios</h1>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Menú de servicios">
+        <h3>Nuestros servicios</h3>
+        <ul class="sidebar-list">
+          <li><a href="#asesoramiento">Asesoramiento y Consultoría Empresarial</a></li>
+          <li><a href="#fiscal">Consultoría Fiscal</a></li>
+          <li><a href="#empleo">Consultoría de Empleo</a></li>
+          <li><a href="#contable">Consultoría Contable</a></li>
+          <li><a href="#seguros">Seguros</a></li>
+          <li><a href="#residencia">Residencia e inmigración</a></li>
+          <li><a href="#startups">Consejos para startups</a></li>
+        </ul>
+      </aside>
+
+      <section class="content">
+        <article id="asesoramiento">
+          <h2>Asesoramiento y Consultoría Empresarial</h2>
+          <p>Nuestros servicios de consultoría empresarial ayudan a las empresas a afrontar desafíos complejos y lograr un crecimiento sostenible. Brindamos orientación estratégica sobre desarrollo empresarial, análisis de mercado, eficiencia operativa y estructura organizacional. Nuestros consultores experimentados trabajan en estrecha colaboración con usted para identificar oportunidades, mitigar riesgos e implementar soluciones adaptadas a su industria y objetivos específicos.</p>
+
+          <p>Ya sea que sea una startup que busca establecer una base sólida o una empresa establecida que busca expandirse, nuestros servicios integrales de asesoramiento empresarial lo ayudarán a tomar decisiones informadas e impulsar el éxito. Combinamos la experiencia de la industria con conocimientos prácticos para ofrecer estrategias prácticas que produzcan resultados mensurables.</p>
+
+          <h3>Nuestras estrategias</h3>
+          <p>Las estrategias comerciales son marcos críticos que las organizaciones utilizan para lograr sus objetivos, afrontar los desafíos del mercado y mantener una ventaja competitiva. Estas estrategias guían a las empresas en la toma de decisiones sobre cómo asignar recursos y hacer crecer el negocio.</p>
+
+          <ul>
+            <li><strong>Consultoría estratégica</strong><br>Orientación experta para estrategias de crecimiento y desarrollo empresarial.</li>
+            <li><strong>Análisis de mercado</strong><br>Servicios integrales de investigación de mercado y análisis competitivo.</li>
+            <li><strong>Planificación empresarial</strong><br>Planes de negocio detallados y estrategias de crecimiento adaptadas a sus necesidades.</li>
+          </ul>
+        </article>
+
+        <article id="fiscal">
+          <h3>Consultoría Fiscal</h3>
+          <p>Nuestros servicios de consultoría fiscal garantizan el cumplimiento de la normativa fiscal optimizando al mismo tiempo su posición fiscal. Brindamos asesoramiento experto sobre planificación, preparación y presentación de impuestos para individuos, empresas y corporaciones. Nuestro equipo se mantiene actualizado con las últimas leyes y regulaciones fiscales para ayudarlo a minimizar las obligaciones fiscales y maximizar las deducciones.</p>
+
+          <p>Desde declaraciones de impuestos anuales hasta estrategias complejas de planificación fiscal, ofrecemos servicios fiscales integrales diseñados para proteger sus intereses y garantizar el pleno cumplimiento. Trabajamos tanto con residentes como con no residentes, brindando orientación especializada para cada situación.</p>
+
+          <h4>Nuestros servicios fiscales</h4>
+          <p>Nuestros servicios tributarios integrales están diseñados para ayudar a personas y empresas a navegar por el complejo mundo de los impuestos mientras maximizan los ahorros y garantizan el pleno cumplimiento de todas las regulaciones.</p>
+
+          <ul>
+            <li><strong>Preparación de impuestos</strong><br>Elaboración y presentación pericial de todas las declaraciones y declaraciones de impuestos.</li>
+            <li><strong>Planificación fiscal</strong><br>Planificación fiscal estratégica para minimizar pasivos y maximizar ahorros.</li>
+            <li><strong>Consulta Fiscal</strong><br>Asesoramiento profesional en materia tributaria y cumplimiento normativo.</li>
+          </ul>
+        </article>
+        
+        <article id="empleo">
+          <h3>Consultoría de Empleo</h3>
+          <p>Nuestros servicios de consultoría laboral ayudan a las empresas a gestionar su fuerza laboral de manera efectiva y al mismo tiempo garantizan el cumplimiento de las leyes y regulaciones laborales. Brindamos orientación sobre contratos de trabajo, gestión de nóminas, contribuciones a la seguridad social y relaciones laborales. Nuestros expertos ayudan con los procedimientos de contratación, los beneficios para los empleados y el cumplimiento en el lugar de trabajo.</p>
+
+          <p>Apoyamos a empresas de todos los tamaños en la gestión de las complejidades de la legislación laboral, desde la redacción de contratos de trabajo hasta el manejo de disputas y despidos. Nuestro objetivo es ayudarle a mantener una fuerza laboral productiva y que cumpla con las normas.</p>
+
+          <h4>Nuestros servicios de empleo</h4>
+          <p>Brindamos servicios integrales de empleo para ayudar a las empresas a gestionar su fuerza laboral de manera efectiva y al mismo tiempo garantizar el pleno cumplimiento de las leyes y regulaciones laborales.</p>
+
+          <ul>
+            <li><strong>Consultoría de RRHH</strong><br>Orientación experta sobre gestión y políticas de recursos humanos.</li>
+            <li><strong>Servicios de nómina</strong><br>Gestión integral de nóminas y administración de seguridad social.</li>
+            <li><strong>Cumplimiento Laboral</strong><br>Garantizar el pleno cumplimiento de las leyes laborales y normativas del lugar de trabajo.</li>
+          </ul>
+        </article>
+        
+        <article id="contable">
+          <h3>Consultoría Contable</h3>
+          <p>Nuestros servicios de consultoría contable brindan soluciones integrales de gestión financiera y presentación de informes. Nos encargamos de la contabilidad, los estados financieros, la presupuestación y el análisis financiero para ayudarle a mantener registros precisos y tomar decisiones comerciales informadas. Nuestro equipo garantiza el cumplimiento de las normas y regulaciones contables.</p>
+
+          <p>Ofrecemos servicios de contabilidad continua y consultas únicas, adaptadas a las necesidades de su negocio. Desde la contabilidad mensual hasta los estados financieros anuales, lo ayudamos a mantener registros financieros claros y precisos que respaldan el crecimiento de su negocio.</p>
+
+          <h4>Nuestros servicios de contabilidad</h4>
+          <p>Brindamos servicios de contabilidad integrales para ayudar a las empresas a mantener registros financieros precisos y tomar decisiones informadas basadas en datos financieros confiables.</p>
+
+          <ul>
+            <li><strong>Contabilidad</strong><br>Servicios de contabilidad precisos y oportunos para su negocio.</li>
+            <li><strong>Estados financieros</strong><br>Elaboración de estados e informes financieros completos.</li>
+            <li><strong>Análisis financiero</strong><br>Análisis financiero detallado para apoyar la toma de decisiones empresariales.</li>
+          </ul>
+        </article>
+
+        <article id="seguros">
+          <h3>Seguros</h3>
+          <p>Ofrecemos servicios de seguros integrales tanto para particulares como para empresas. Nuestra consultoría de seguros le ayuda a encontrar la cobertura adecuada para sus necesidades, incluidos seguros médicos, seguros de vida, seguros de propiedad, seguros comerciales y seguros de vehículos. Trabajamos con proveedores de seguros líderes para garantizar las mejores tarifas y opciones de cobertura.</p>
+
+          <p>Nuestros asesores experimentados analizan sus necesidades específicas y su perfil de riesgo para recomendarle soluciones de seguros adecuadas. Manejamos comparaciones de políticas, asistencia en reclamos y gestión de políticas para garantizar que usted tenga la protección que necesita a precios competitivos.</p>
+
+          <h4>Nuestros servicios de seguros</h4>
+          <p>Brindamos servicios de seguros integrales para ayudar a personas y empresas a encontrar la cobertura adecuada a tarifas competitivas y al mismo tiempo garantizar una protección adecuada para sus necesidades.</p>
+
+          <ul>
+            <li><strong>Consultoría de seguros</strong><br>Asesoramiento experto sobre necesidades de seguros y selección de pólizas.</li>
+            <li><strong>Gestión de políticas</strong><br>Servicios integrales de administración y gestión de políticas.</li>
+            <li><strong>Soporte de reclamaciones</strong><br>Asistencia en reclamaciones de seguros y resolución de disputas.</li>
+          </ul>
+        </article>
+        
+        <article id="residencia">
+          <h3>Residencia e inmigración</h3>
+          <p>Nuestros servicios de residencia e inmigración ayudan a personas y familias a navegar el complejo proceso de obtención de la residencia legal en España. Ayudamos con solicitudes de residencia, permisos de trabajo, reunificación familiar, solicitudes de ciudadanía y toda la documentación relacionada. Nuestro equipo tiene experiencia en el manejo de casos para ciudadanos de la UE y de fuera de la UE.</p>
+
+          <p>Brindamos soporte integral durante todo el proceso, desde la solicitud inicial hasta la aprobación final. Nuestros servicios incluyen preparación de documentos, presentación de solicitudes, seguimiento con las autoridades y asistencia con cualquier apelación o renovación. Ayudamos a que el proceso de inmigración sea lo más fluido y libre de estrés posible.</p>
+
+          <h4>Nuestros servicios de inmigración</h4>
+          <p>Brindamos servicios integrales de inmigración y residencia para ayudar a personas y familias a navegar el complejo proceso de obtención de estatus legal en España.</p>
+
+          <ul>
+            <li><strong>Servicios de residencia</strong><br>Asistencia completa con solicitudes y permisos de residencia.</li>
+            <li><strong>Permisos de trabajo</strong><br>Asistencia experta en solicitudes y renovaciones de permisos de trabajo.</li>
+            <li><strong>Servicios de ciudadanía</strong><br>Orientación a través del proceso de solicitud de ciudadanía.</li>
+          </ul>
+        </article>
+        
+        <article id="startups">
+          <h3>Consejos para startups</h3>
+          <p>Nuestros servicios de asesoramiento para empresas emergentes brindan apoyo integral a nuevas empresas desde su concepción hasta su crecimiento. Ayudamos con el registro de empresas, la selección de estructuras legales, la planificación fiscal, la configuración contable, los contratos de trabajo y el cumplimiento normativo. Nuestro equipo lo guía a través de cada paso del establecimiento y operación de su negocio.</p>
+
+          <p>Entendemos los desafíos únicos que enfrentan las empresas emergentes y brindamos soluciones personalizadas que lo ayudan a concentrarse en hacer crecer su negocio mientras manejamos las complejidades administrativas y legales. Desde elegir la estructura empresarial adecuada hasta establecer sistemas de contabilidad y obtener las licencias necesarias, estamos aquí para apoyar su trayectoria empresarial.</p>
+
+          <h4>Nuestros servicios de puesta en marcha</h4>
+          <p>Ofrecemos servicios integrales de asesoramiento inicial para ayudar a las nuevas empresas a afrontar las complejidades de establecer y operar un negocio exitoso en España.</p>
+
+          <ul>
+            <li><strong>Registro de empresas</strong><br>Asistencia completa con registro de empresas y configuración legal.</li>
+            <li><strong>Configuración fiscal</strong><br>Planificación fiscal inicial y registro de nuevas empresas.</li>
+            <li><strong>Configuración de contabilidad</strong><br>Establecimiento de sistemas contables y de gestión financiera.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+  <script>
+    (function(){
+      function showSection(id){
+        var articles = document.querySelectorAll('.content article');
+        articles.forEach(function(a){ a.classList.remove('active'); });
+        var target = document.getElementById(id);
+        if(target) target.classList.add('active');
+
+        // update active link
+        var links = document.querySelectorAll('.sidebar-list a');
+        links.forEach(function(l){ l.classList.remove('active'); });
+        var link = document.querySelector('.sidebar-list a[href="#'+id+'"]');
+        if(link) link.classList.add('active');
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        var links = document.querySelectorAll('.sidebar-list a');
+        links.forEach(function(l){
+          l.addEventListener('click', function(ev){
+            ev.preventDefault();
+            var href = l.getAttribute('href') || '';
+            var id = href.replace('#','');
+            if(id) showSection(id);
+            // update hash without scrolling
+            if(history && history.replaceState){
+              history.replaceState(null, '', '#'+id);
+            } else {
+              location.hash = id;
+            }
+          });
+        });
+
+        // On load, show section from hash or first article
+        var initial = (location.hash && location.hash.length>1) ? location.hash.substring(1) : null;
+        if(initial && document.getElementById(initial)){
+          showSection(initial);
+        } else {
+          // show first article
+          var first = document.querySelector('.content article');
+          if(first) first.classList.add('active');
+          var firstId = first && first.id;
+          var firstLink = firstId && document.querySelector('.sidebar-list a[href="#'+firstId+'"]');
+          if(firstLink) firstLink.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

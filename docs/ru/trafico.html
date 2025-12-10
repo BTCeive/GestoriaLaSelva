@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gestoría La Selva — Дорожное движение</title>
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a class="brand-link" href="/docs/ru/index.html">Gestoría La Selva</a></div>
+    <nav class="site-nav">
+      <ul class="nav-list">
+        <li><a href="/docs/ru/index.html">Inicio</a></li>
+        <li><a href="sobre.html">Sobre Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="trafico.html">Tráfico</a></li>
+        <li><a href="no-residentes.html">No Residentes</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true">
+        <span class="flag">🇷🇺</span>
+        <span id="currentLabel">Русский</span>
+      </button>
+      <ul class="lang-list" id="langList">
+        <li><a href="../es/" data-lang="es">🇪🇸 Español</a></li>
+        <li><a href="../en/" data-lang="en">🇬🇧 English</a></li>
+        <li><a href="../ca/" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
+        <li><a href="../fr/" data-lang="fr">🇫🇷 Français</a></li>
+        <li><a href="./" data-lang="ru">🇷🇺 Русский</a></li>
+        <li><a href="../hy/" data-lang="hy">🇦🇲 Հայերեն</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('langBtn');
+      var list = document.getElementById('langList');
+      var dd = document.getElementById('langDropdown');
+      btn.addEventListener('click', function(){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true':'false'); });
+      document.addEventListener('click', function(e){ if(!dd.contains(e.target)){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+    })();
+  </script>
+
+  <main class="site-main">
+    <h1>Tráfico</h1>
+    <section>
+      <p>Управление штрафами, обжалования и административные процедуры, связанные с дорожным движением.</p>
+    </section>
+  </main>
+</body>
+</html>

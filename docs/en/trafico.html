@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gestoría La Selva — Tráfico</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <style>
+    .content article{display:none}
+    .content article.active{display:block}
+    .sidebar-list a.active{background:#e6f6ff;font-weight:600}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand"><a class="brand-link" href="/docs/en/index.html">Gestoría La Selva</a></div>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="nav-list">
+        <li><a class="nav-link" href="/docs/en/index.html">Inicio</a></li>
+        <li><a class="nav-link" href="sobre.html">Sobre Nosotros</a></li>
+        <li><a class="nav-link" href="servicios.html">Servicios</a></li>
+        <li><a class="nav-link" href="trafico.html">Tráfico</a></li>
+        <li><a class="nav-link" href="no-residentes.html">No Residentes</a></li>
+        <li><a class="nav-link" href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="lang-dropdown" id="langDropdown">
+      <button class="lang-btn" id="langBtn" aria-expanded="false" aria-haspopup="true" title="Seleccionar idioma">
+        <span class="flag" id="currentFlag">🇬🇧</span>
+        <span id="currentLabel">English</span>
+      </button>
+      <ul class="lang-list" id="langList" role="menu" aria-label="Lista de idiomas">
+        <li><a href="../es/" data-lang="es"><span class="flag">🇪🇸</span> Español</a></li>
+        <li><a href="./" data-lang="en"><span class="flag">🇬🇧</span> English</a></li>
+        <li><a href="../ca/" data-lang="ca"><img class="flag-img" src="../assets/img/senyera.svg" alt="Català"> Català</a></li>
+        <li><a href="../fr/" data-lang="fr"><span class="flag">🇫🇷</span> Français</a></li>
+        <li><a href="../ru/" data-lang="ru"><span class="flag">🇷🇺</span> Русский</a></li>
+        <li><a href="../hy/" data-lang="hy"><span class="flag">🇦🇲</span> Հայերեն</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <script>
+    (function(){
+      var btn = document.getElementById('langBtn');
+      var list = document.getElementById('langList');
+      var dd = document.getElementById('langDropdown');
+      var currentFlag = document.getElementById('currentFlag');
+      var currentLabel = document.getElementById('currentLabel');
+      function guessLang(){
+        var parts = location.pathname.split('/').filter(Boolean);
+        for(var i=parts.length-1;i>=0;i--){ if(['es','en','fr','ru','ca','hy'].indexOf(parts[i])!==-1) return parts[i]; }
+        var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'en';
+        return nav.split('-')[0];
+      }
+      var lang = guessLang() || 'en';
+      var map = {es:{flag:'🇪🇸',label:'Español'},en:{flag:'🇬🇧',label:'English'},ca:{label:'Català'},fr:{flag:'🇫🇷',label:'Français'},ru:{flag:'🇷🇺',label:'Русский'},hy:{flag:'🇦🇲',label:'Հայերեն'}};
+      if(map[lang]){
+        if(lang === 'ca'){
+          currentFlag.innerHTML = '<img class="flag-img" src="../assets/img/senyera.svg" alt="Català">';
+        }else{
+          currentFlag.textContent = map[lang].flag;
+        }
+        currentLabel.textContent = map[lang].label;
+      }
+      btn.addEventListener('click', function(e){ var open = list.classList.toggle('open'); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+      document.addEventListener('click', function(e){ if(!dd.contains(e.target)){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); } });
+      btn.addEventListener('keydown', function(e){ if(e.key==='Escape'){ list.classList.remove('open'); btn.setAttribute('aria-expanded','false'); btn.focus(); } });
+    })();
+  </script>
+
+  <main class="site-main">
+    <h1>Tráfico</h1>
+
+    <div class="layout">
+      <aside class="sidebar" aria-label="Menú de tráfico">
+        <h3>Temas de tráfico</h3>
+        <ul class="sidebar-list">
+          <li><a href="#registro">Registro de vehículos</a></li>
+          <li><a href="#importacion">Importación de vehículos</a></li>
+          <li><a href="#exportacion">Exportación de vehículos</a></li>
+          <li><a href="#otros">Otros servicios de tráfico</a></li>
+        </ul>
+      </aside>
+
+      <section class="content">
+        <article id="registro">
+          <h3>Registro de vehículos</h3>
+          <p>Registrar un vehículo en España puede ser un proceso complejo, lleno de mucho papeleo y visitas a diferentes entidades. En Gestoria La Selva te ofrecemos una solución integral para transformar este proceso en una experiencia fluida y sin preocupaciones. Nuestro equipo se encarga de todos los detalles, asegurándose de que su vehículo esté listo para circular legalmente con toda la documentación en regla.</p>
+
+          <p>Confíe en nuestra profesionalidad y eficiencia y deje que su vehículo sea nuestra prioridad.</p>
+
+          <h4>Nuestros servicios de registro</h4>
+          <p>Ofrecemos servicios integrales de matriculación de vehículos para garantizar que su vehículo esté debidamente matriculado y listo para circular legalmente en España con toda la documentación en regla.</p>
+
+          <ul>
+            <li><strong>Matriculación de vehículos nuevos</strong><br>Proceso completo de matriculación de vehículos nuevos en España.</li>
+            <li><strong>Gestión de documentación</strong><br>Nos encargamos de todo el papeleo y requisitos de documentación.</li>
+            <li><strong>Soporte experto</strong><br>Orientación profesional durante todo el proceso de inscripción.</li>
+          </ul>
+        </article>
+
+        <article id="importacion">
+          <h3>Importación de vehículos</h3>
+          <p>¿Estás pensando en traer tu vehículo a territorio español?</p>
+
+          <p>En Gestoria La Selva nos encargamos de todos los trámites necesarios. Gestionamos cada detalle del proceso, permitiéndote centrarte únicamente en el placer de conducir. Ofrecemos asesoramiento personalizado, revisando la documentación y especificaciones técnicas de tu vehículo para garantizar el cumplimiento de la normativa española. Nos encargamos de todos los trámites aduaneros, desde la declaración de importación hasta el pago de impuestos. Además, preparamos tu vehículo para la Inspección Técnica Vehicular en España, asegurándonos de que cumple con los estándares de seguridad y emisiones del país. Por último, realizamos todo el proceso de matriculación, incluida la obtención de la matrícula española y el certificado de matriculación del vehículo.</p>
+
+          <h4>Nuestros servicios de importación</h4>
+          <p>Brindamos servicios integrales de importación de vehículos para ayudarle a traer su vehículo a España con todos los trámites necesarios completados de manera eficiente y de conformidad con la normativa española.</p>
+
+          <ul>
+            <li><strong>Procedimientos aduaneros</strong><br>Manejo completo de toda la documentación aduanera y de importación.</li>
+            <li><strong>Inspección técnica</strong><br>Elaboración y coordinación de la inspección técnica del vehículo.</li>
+            <li><strong>Registro en español</strong><br>Complete el proceso de registro con placas y certificados españoles.</li>
+          </ul>
+        </article>
+
+        <article id="exportacion">
+          <h3>Exportación de vehículos</h3>
+          <p>¿Estás pensando en exportar tu vehículo desde España?</p>
+
+          <p>En Gestoria La Selva también nos especializamos en ayudarte a trasladar tu coche a destinos internacionales. Sabemos que exportar un vehículo puede parecer una tarea abrumadora, pero con nuestra experiencia y conocimiento, convertimos el proceso en una experiencia fluida y sin obstáculos. Manejamos meticulosamente cada detalle, desde la preparación inicial hasta la obtención de todos los documentos y certificados requeridos. Esto no sólo garantiza que usted cumpla plenamente con las regulaciones internacionales, sino que también garantiza el correcto pago de derechos y minimiza cualquier posibilidad de retrasos o problemas en el proceso de exportación. Con Gestoria La Selva puedes estar seguro sabiendo que tu vehículo está en manos expertas y llegará a su nuevo destino sin problemas.</p>
+
+          <h4>Nuestros servicios de exportación</h4>
+          <p>Brindamos servicios integrales de exportación de vehículos para ayudarlo a trasladar su vehículo a destinos internacionales con toda la documentación necesaria y el cumplimiento de las regulaciones internacionales.</p>
+
+          <ul>
+            <li><strong>Exportar documentación</strong><br>Preparación completa de todos los documentos y certificados de exportación.</li>
+            <li><strong>Procedimientos aduaneros</strong><br>Manejo experto de procedimientos aduaneros y de exportación.</li>
+            <li><strong>Cumplimiento internacional</strong><br>Garantizar el pleno cumplimiento de la normativa internacional.</li>
+          </ul>
+        </article>
+
+        <article id="otros">
+          <h3>Otros servicios de tráfico</h3>
+          <p>Ofrecemos una amplia gama de servicios de tráfico adicionales para satisfacer todas sus necesidades de vehículos y licencias:</p>
+
+          <ul>
+            <li><strong>Cambio de Propiedad</strong>: Gestionamos la transferencia de propiedad de cualquier vehículo.</li>
+            <li><strong>Duplicados y variación de datos</strong>: Servicios especializados en duplicados y variación de datos ante la DGT, garantizando un proceso rápido y sencillo.</li>
+            <li><strong>Renovaciones</strong>: Antes de que expire su licencia de conducir, nos encargamos de todo el proceso para actualizarla.</li>
+            <li><strong>Certificados e informes de vehículos</strong>: Obtenemos detalles completos sobre cualquier vehículo de su interés.</li>
+            <li><strong>Intercambios de licencias</strong>: Cambiamos tu licencia de conducir extranjera por una oficial española.</li>
+            <li><strong>Licencia internacional</strong>: Procesamos la adquisición de un permiso internacional para que puedas conducir por el mundo.</li>
+            <li><strong>Desregistro de vehículos</strong>: Nos encargamos de todos los trámites necesarios con Traffic para sacar oficialmente tu coche de circulación.</li>
+            <li><strong>Multas de apelación</strong>: Analizamos tu sanción, preparamos la defensa y gestionamos todo el proceso para darte la mejor posibilidad de cancelar o reducir tu multa.</li>
+            <li><strong>Placas temporales</strong>: Gestión de placas temporales (“verdes”) en situaciones especiales para un proceso fluido y sin problemas.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function(){
+      function showSection(id){
+        var articles = document.querySelectorAll('.content article');
+        articles.forEach(function(a){ a.classList.remove('active'); });
+        var target = document.getElementById(id);
+        if(target) target.classList.add('active');
+
+        var links = document.querySelectorAll('.sidebar-list a');
+        links.forEach(function(l){ l.classList.remove('active'); });
+        var link = document.querySelector('.sidebar-list a[href="#'+id+'"]');
+        if(link) link.classList.add('active');
+      }
+
+      document.addEventListener('DOMContentLoaded', function(){
+        var links = document.querySelectorAll('.sidebar-list a');
+        links.forEach(function(l){
+          l.addEventListener('click', function(ev){
+            ev.preventDefault();
+            var href = l.getAttribute('href') || '';
+            var id = href.replace('#','');
+            if(id) showSection(id);
+            if(history && history.replaceState){ history.replaceState(null, '', '#'+id); } else { location.hash = id; }
+          });
+        });
+
+        var initial = (location.hash && location.hash.length>1) ? location.hash.substring(1) : null;
+        if(initial && document.getElementById(initial)){
+          showSection(initial);
+        } else {
+          var first = document.querySelector('.content article');
+          if(first) first.classList.add('active');
+          var firstId = first && first.id;
+          var firstLink = firstId && document.querySelector('.sidebar-list a[href="#'+firstId+'"]');
+          if(firstLink) firstLink.classList.add('active');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
